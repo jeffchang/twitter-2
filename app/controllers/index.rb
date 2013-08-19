@@ -6,6 +6,7 @@ get '/:username' do
   @user = TwitterUser.find_by_name(params[:username])
   if @user.tweets_stale?
     @user.fetch_tweets!
+    erb :waiting
   end
   @tweets = @user.tweets
   erb :list
