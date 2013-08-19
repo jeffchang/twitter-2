@@ -3,21 +3,17 @@ get '/' do
 end
 
 get '/:username' do
-  
-  if @user.tweets.empty?
-
-
-    @user.fetch_tweets!
-  end
-
-  @tweets = @user.tweets.limit(10)
-
+  @user = TwitterUser.find_by_name(params[:username])
+  @tweets = @user.tweets
   erb :list
 end
 
 
 post '/user_find' do
-  @user = TwitterUser.find_by_username(params[:username])
-
-  redirect "/#{@user.username}"
+  @user = TwitterUser.find_by_name(params[:username]) rescue nil
+  @user = TwitterUser.create({name: params[:username]}) unless @user
+  if @user.tweets.empty?
+    @user.fetch_tweets!
+  end
+  redirect "/#{@user.name}"
 end
