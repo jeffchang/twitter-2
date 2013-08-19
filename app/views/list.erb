@@ -1,8 +1,6 @@
 <h1>Tweets for @<%= @user.name %></h1>
 <ol>
-  <% @tweets.each_with_index do |tweet, index| %>
-  <li>
-    <p><%= index + 1 %>. <%= tweet.content %></p>
-  </li>
+  <% @tweets.each do |tweet| %>
+    <li><p><%= tweet.content %></p></li>
   <% end %>
 </ol>
