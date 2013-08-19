@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/:username' do
-  @user = TwitterUser.find_by_username(params[:username])
+  
   if @user.tweets.empty?
 
 
@@ -11,4 +11,13 @@ get '/:username' do
   end
 
   @tweets = @user.tweets.limit(10)
+
+  erb :list
+end
+
+
+post '/user_find' do
+  @user = TwitterUser.find_by_username(params[:username])
+
+  redirect "/#{@user.username}"
 end

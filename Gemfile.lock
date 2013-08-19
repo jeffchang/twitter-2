@@ -25,10 +25,13 @@ GEM
     eventmachine (1.0.3)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     i18n (0.6.5)
     kgio (2.8.0)
     minitest (4.7.5)
     multi_json (1.7.9)
+    multipart-post (1.2.0)
     pg (0.16.0)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -47,6 +50,7 @@ GEM
     rspec-mocks (2.14.3)
     shotgun (0.9)
       rack (>= 1.0)
+    simple_oauth (0.2.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -61,6 +65,10 @@ GEM
     thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
+    twitter (4.8.1)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
     tzinfo (0.3.37)
     unicorn (4.6.3)
       kgio (~> 2.6)
@@ -81,4 +89,5 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-contrib
+  twitter
   unicorn
