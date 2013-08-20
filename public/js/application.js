@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  $(document).on("load", "#waiting", function() {
-    var data = "user_id="+$(this).data("id");
+  if ($('#waiting').length > 0) {
+    var data = "username=" + username;
     $.post("/refresh", data, function(response) {
       $(".container").html(response);
     });
-  });
+  }
 });
+
